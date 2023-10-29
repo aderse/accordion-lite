@@ -1,0 +1,46 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-aderse-accordion-lite {
+	margin: 0;
+
+	.simpleaccordion-accordion {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		background-color: #eee;
+		color: #444;
+		cursor: pointer;
+		width: 100%;
+		padding: 0 18px;
+		text-align: left;
+		border: none;
+		outline: none;
+		transition: 0.4s;
+
+		h3 {
+			margin: 0;
+		}
+	}
+	
+	/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+	.active, .simpleaccordion-accordion:hover {
+		background-color: #ccc;
+	}
+	
+	/* Style the accordion panel. Note: hidden by default */
+	.simpleaccordion-panel {
+		padding: 0 18px;
+		background-color: white;
+		display: none;
+		overflow: hidden;
+	}
+
+	.simpleaccordion-expand {
+		margin-left: auto;
+	}
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "aderse/accordion-lite",
+  "version": "1.0.0",
+  "title": "Accordion Lite",
+  "category": "widgets",
+  "icon": "plus",
+  "description": "A simple accordion block for Gutenberg.",
+  "example": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "source": "text",
+      "selector": "h3"
+    },
+    "content": {
+      "type": "string",
+      "source": "text",
+      "selector": "p"
+    }
+  },
+  "supports": {
+    "html": false
+  },
+  "textdomain": "accordion-lite",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js"
+}
