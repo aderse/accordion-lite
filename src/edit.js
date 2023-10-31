@@ -30,10 +30,11 @@ import './editor.scss';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#edit
  *
- * @return {Element} Element to render.
+ * @return {JSX.Element} Element to render.
  */
 export default function Edit( { attributes, setAttributes } ) {
 	const blockProps = useBlockProps();
+	const { InnerBlocks } = wp.blockEditor;
 	return (
 		<div>
 			<div className="simpleaccordion-accordion">
@@ -48,13 +49,7 @@ export default function Edit( { attributes, setAttributes } ) {
 				<span className="simpleaccordion-expand">+</span>
 			</div>
 			<div className="simpleaccordion-panel">
-				<RichText
-					tagName="p"
-					label="Content"
-					value={ attributes.content }
-					onChange={ ( content ) => setAttributes( { content } ) }
-					placeholder='Accordion Content'
-				/>
+				<InnerBlocks />
 			</div>
 		
 		</div>

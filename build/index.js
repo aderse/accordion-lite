@@ -52,13 +52,16 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#edit
  *
- * @return {Element} Element to render.
+ * @return {JSX.Element} Element to render.
  */
 function Edit({
   attributes,
   setAttributes
 }) {
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)();
+  const {
+    InnerBlocks
+  } = wp.blockEditor;
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "simpleaccordion-accordion"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
@@ -74,15 +77,7 @@ function Edit({
     className: "simpleaccordion-expand"
   }, "+")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "simpleaccordion-panel"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
-    tagName: "p",
-    label: "Content",
-    value: attributes.content,
-    onChange: content => setAttributes({
-      content
-    }),
-    placeholder: "Accordion Content"
-  })));
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(InnerBlocks, null)));
 }
 
 /***/ }),
@@ -172,12 +167,15 @@ __webpack_require__.r(__webpack_exports__);
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#save
  * @param {Object} props            Properties passed to the function.
  * @param {Object} props.attributes Available block attributes.
- * @return {Element} Element to render.
+ * @return {JSX.Element} Element to render.
  */
 function save({
   attributes
 }) {
   const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save();
+  const {
+    InnerBlocks
+  } = wp.blockEditor;
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...blockProps
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -189,10 +187,7 @@ function save({
     className: "simpleaccordion-expand"
   }, "+")), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "simpleaccordion-panel"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
-    tagName: "p",
-    value: attributes.content
-  })));
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(InnerBlocks.Content, null)));
 }
 
 /***/ }),
@@ -277,7 +272,7 @@ module.exports = window["wp"]["i18n"];
   \************************/
 /***/ (function(module) {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"aderse/accordion-lite","version":"1.0.0","title":"Accordion Lite","category":"widgets","icon":"plus","description":"A simple accordion block for Gutenberg.","example":{},"attributes":{"title":{"type":"string","source":"text","selector":"h3"},"content":{"type":"string","source":"text","selector":"p"}},"supports":{"html":false},"textdomain":"accordion-lite","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"aderse/accordion-lite","version":"1.0.1","title":"Accordion Lite","category":"widgets","icon":"plus","description":"A simple accordion block for Gutenberg.","example":{},"attributes":{"title":{"type":"string","source":"text","selector":"h3"},"content":{"type":"string","source":"text","selector":"p"}},"supports":{"html":false,"innerBlocks":true},"textdomain":"accordion-lite","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
 
 /***/ })
 

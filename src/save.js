@@ -14,10 +14,11 @@ import { useBlockProps, RichText } from '@wordpress/block-editor';
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#save
  * @param {Object} props            Properties passed to the function.
  * @param {Object} props.attributes Available block attributes.
- * @return {Element} Element to render.
+ * @return {JSX.Element} Element to render.
  */
 export default function save( { attributes } ) {
 	const blockProps = useBlockProps.save();
+	const { InnerBlocks } = wp.blockEditor;
 	return (
 		<div { ...blockProps }>
 			<div className="simpleaccordion-accordion">
@@ -25,7 +26,7 @@ export default function save( { attributes } ) {
 				<span className="simpleaccordion-expand">+</span>
 			</div>
 			<div className="simpleaccordion-panel">
-				<RichText.Content tagName="p" value={ attributes.content } />
+				<InnerBlocks.Content />
 			</div>
 		</div>
 	);
