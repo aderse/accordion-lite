@@ -11,10 +11,9 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps, RichText } from '@wordpress/block-editor';
+import { useBlockProps, RichText, InspectorControls, InnerBlocks } from '@wordpress/block-editor';
 
-
-import { TextControl, Button } from '@wordpress/components';
+import { PanelBody, ColorPalette } from '@wordpress/components';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -23,6 +22,7 @@ import { TextControl, Button } from '@wordpress/components';
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 import './editor.scss';
+import { Panel } from '@wordpress/components';
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -37,7 +37,29 @@ export default function Edit( { attributes, setAttributes } ) {
 	const { InnerBlocks } = wp.blockEditor;
 	return (
 		<div>
-			<div className="simpleaccordion-accordion">
+			<InspectorControls>
+				<PanelBody
+					title={ __('Accordion Title Settings') }
+					initialOpen={ true }
+					>
+					<p><strong>Title Background Color</strong></p>
+					<ColorPalette
+						value={ attributes.titleBackgroundColor }
+						onChange={ (titleBackgroundColor) => setAttributes( { titleBackgroundColor } ) }
+					/>
+					<p><strong>Title Color</strong></p>
+					<ColorPalette
+						value={ attributes.titleColor }
+						onChange={ (titleColor) => setAttributes( { titleColor } ) }
+					/>
+					<p><strong>Panel Background Color</strong></p>
+					<ColorPalette
+						value={ attributes.panelBackgroundColor }
+						onChange={ (panelBackgroundColor) => setAttributes( { panelBackgroundColor } ) }
+					/>
+				</PanelBody>
+			</InspectorControls>
+			<div className="simpleaccordion-accordion" style={ { backgroundColor: attributes.titleBackgroundColor } }>
 				<RichText
 					{ ...blockProps }
 					tagName="h3"
@@ -45,10 +67,11 @@ export default function Edit( { attributes, setAttributes } ) {
 					value={ attributes.title }
 					onChange={ ( title ) => setAttributes( { title } ) }
 					placeholder='Accordion Title'
+					style={ { color: attributes.titleColor } }
 				/>
-				<span className="simpleaccordion-expand">+</span>
+				<span className="simpleaccordion-expand" style={ { color: attributes.titleColor } }>+</span>
 			</div>
-			<div className="simpleaccordion-panel">
+			<div className="simpleaccordion-panel" style={ { color: attributes.panelBackgroundColor } }>
 				<InnerBlocks />
 			</div>
 		

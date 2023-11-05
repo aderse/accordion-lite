@@ -18,6 +18,18 @@
       "type": "string",
       "source": "text",
       "selector": "p"
+    },
+    "titleBackgroundColor": {
+      "type": "string",
+      "default": "#CCCCCC"
+    },
+    "titleColor": {
+      "type": "string",
+      "default": "#000000"
+    },
+    "panelBackgroundColor": {
+      "type": "string",
+      "default": "#FFFFFF"
     }
   },
   "supports": {

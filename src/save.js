@@ -21,11 +21,15 @@ export default function save( { attributes } ) {
 	const { InnerBlocks } = wp.blockEditor;
 	return (
 		<div { ...blockProps }>
-			<div className="simpleaccordion-accordion">
-				<RichText.Content tagName="h3" value={ attributes.title } /> 
-				<span className="simpleaccordion-expand">+</span>
+			<div className="simpleaccordion-accordion" style={ { backgroundColor: attributes.titleBackgroundColor } }>
+				<RichText.Content 
+					tagName="h3" 
+					value={ attributes.title } 
+					style={ { color: attributes.titleColor } }	
+				/> 
+				<span className="simpleaccordion-expand" style={ { color: attributes.titleColor  } }>+</span>
 			</div>
-			<div className="simpleaccordion-panel">
+			<div className="simpleaccordion-panel" style={ { backgroundColor: attributes.panelBackgroundColorg } }>
 				<InnerBlocks.Content />
 			</div>
 		</div>

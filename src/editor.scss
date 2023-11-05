@@ -8,22 +8,19 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	background-color: #eee;
-	color: #444;
-	cursor: pointer;
 	padding: 5px 18px;
 	text-align: left;
 	border: none;
 	outline: none;
-	transition: 0.4s;
-	h3 {
+
+	h1, h2, h3, h4, h5, h6 {
 		margin: 0;
 	}
 }
 	
 	/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 .active, .simpleaccordion-accordion:hover {
-	background-color: #ccc;
+	cursor: pointer;
 }
 	
 	/* Style the accordion panel. Note: hidden by default */
