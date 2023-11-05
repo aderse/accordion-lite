@@ -2,7 +2,7 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
   "name": "aderse/accordion-lite",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "title": "Accordion Lite",
   "category": "widgets",
   "icon": "plus",
@@ -14,10 +14,9 @@
       "source": "text",
       "selector": "h3"
     },
-    "content": {
+    "titleElement": {
       "type": "string",
-      "source": "text",
-      "selector": "p"
+      "default": "h3"
     },
     "titleBackgroundColor": {
       "type": "string",
@@ -26,6 +25,14 @@
     "titleColor": {
       "type": "string",
       "default": "#000000"
+    },
+    "titlePadding": {
+      "type": "string",
+      "default": "10px 20px"
+    },
+    "titleSize": {
+      "type": "string",
+      "default": "16px"
     },
     "panelBackgroundColor": {
       "type": "string",

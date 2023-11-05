@@ -13,7 +13,7 @@ import { __ } from '@wordpress/i18n';
  */
 import { useBlockProps, RichText, InspectorControls, InnerBlocks } from '@wordpress/block-editor';
 
-import { PanelBody, ColorPalette } from '@wordpress/components';
+import { PanelBody, ColorPalette, TextControl } from '@wordpress/components';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -22,7 +22,6 @@ import { PanelBody, ColorPalette } from '@wordpress/components';
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 import './editor.scss';
-import { Panel } from '@wordpress/components';
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -42,6 +41,21 @@ export default function Edit( { attributes, setAttributes } ) {
 					title={ __('Accordion Title Settings') }
 					initialOpen={ true }
 					>
+					<p><strong>Title Element</strong><br/><small>h1,h2,h3,h4,h5,h6,p</small></p>
+					<TextControl
+						value={ attributes.titleElement }
+						onChange={ (titleElement) => setAttributes( { titleElement } ) }
+					/>
+					<p><strong>Title Size</strong><br/><small>in pixels</small></p>
+					<TextControl
+						value={ attributes.titleSize }
+						onChange={ (titleSize) => setAttributes( { titleSize } ) }
+					/>
+					<p><strong>Title Padding</strong><br/><small>follow box: 20px 10px 20px 10px</small></p>
+					<TextControl
+						value={ attributes.titlePadding }
+						onChange={ (titlePadding) => setAttributes( { titlePadding } ) }
+					/>
 					<p><strong>Title Background Color</strong></p>
 					<ColorPalette
 						value={ attributes.titleBackgroundColor }
