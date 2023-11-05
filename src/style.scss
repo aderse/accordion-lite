@@ -7,6 +7,7 @@
 
 .wp-block-aderse-accordion-lite {
 	margin: 0;
+	width: 100%;
 
 	.simpleaccordion-accordion {
 		display: flex;
@@ -15,7 +16,6 @@
 		background-color: #eee;
 		color: #444;
 		cursor: pointer;
-		width: 100%;
 		padding: 0 18px;
 		text-align: left;
 		border: none;
@@ -34,8 +34,6 @@
 	
 	/* Style the accordion panel. Note: hidden by default */
 	.simpleaccordion-panel {
-		padding: 0 18px;
-		background-color: white;
 		display: none;
 		overflow: hidden;
 	}

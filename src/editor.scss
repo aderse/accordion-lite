@@ -12,7 +12,6 @@
 	color: #444;
 	cursor: pointer;
 	padding: 5px 18px;
-	width: 100%;
 	text-align: left;
 	border: none;
 	outline: none;
@@ -29,8 +28,6 @@
 	
 	/* Style the accordion panel. Note: hidden by default */
 .simpleaccordion-panel {
-	padding: 0 18px;
-	background-color: white;
 	display: block;
 	overflow: hidden;
 }
