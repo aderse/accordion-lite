@@ -19,17 +19,25 @@ import { useBlockProps, RichText } from '@wordpress/block-editor';
 export default function save( { attributes } ) {
 	const blockProps = useBlockProps.save();
 	const { InnerBlocks } = wp.blockEditor;
+	const titleBlockStyle = {
+		padding: attributes.titlePadding,
+		backgroundColor: attributes.titleBackgroundColor
+	}
+	const titleStyle = {
+		fontSize: attributes.titleSize,
+		color: attributes.titleColor
+	}
 	return (
 		<div { ...blockProps }>
-			<div className="simpleaccordion-accordion" style={ { backgroundColor: attributes.titleBackgroundColor, padding: attributes.titlePadding } }>
+			<div className="simpleaccordion-accordion" style={ titleBlockStyle }>
 				<RichText.Content 
-					tagName={ attributes.titleElement }
-					value={ attributes.title } 
-					style={ { color: attributes.titleColor, fontSize: attributes.titleSize } }
+					tagName="h3"
+					value={ attributes.title }
+					style={ titleStyle }
 				/> 
 				<span className="simpleaccordion-expand" style={ { color: attributes.titleColor  } }>+</span>
 			</div>
-			<div className="simpleaccordion-panel" style={ { backgroundColor: attributes.panelBackgroundColorg } }>
+			<div className="simpleaccordion-panel" style={ { backgroundColor: attributes.panelBackgroundColor } }>
 				<InnerBlocks.Content />
 			</div>
 		</div>

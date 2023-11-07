@@ -34,6 +34,14 @@ import './editor.scss';
 export default function Edit( { attributes, setAttributes } ) {
 	const blockProps = useBlockProps();
 	const { InnerBlocks } = wp.blockEditor;
+	const titleBlockStyle = {
+		padding: attributes.titlePadding,
+		backgroundColor: attributes.titleBackgroundColor
+	}
+	const titleStyle = {
+		fontSize: attributes.titleSize,
+		color: attributes.titleColor
+	};
 	return (
 		<div>
 			<InspectorControls>
@@ -41,11 +49,6 @@ export default function Edit( { attributes, setAttributes } ) {
 					title={ __('Accordion Title Settings') }
 					initialOpen={ true }
 					>
-					<p><strong>Title Element</strong><br/><small>h1,h2,h3,h4,h5,h6,p</small></p>
-					<TextControl
-						value={ attributes.titleElement }
-						onChange={ (titleElement) => setAttributes( { titleElement } ) }
-					/>
 					<p><strong>Title Size</strong><br/><small>in pixels</small></p>
 					<TextControl
 						value={ attributes.titleSize }
@@ -73,7 +76,7 @@ export default function Edit( { attributes, setAttributes } ) {
 					/>
 				</PanelBody>
 			</InspectorControls>
-			<div className="simpleaccordion-accordion" style={ { backgroundColor: attributes.titleBackgroundColor } }>
+			<div className="simpleaccordion-accordion" style={ titleBlockStyle }>
 				<RichText
 					{ ...blockProps }
 					tagName="h3"
@@ -81,14 +84,13 @@ export default function Edit( { attributes, setAttributes } ) {
 					value={ attributes.title }
 					onChange={ ( title ) => setAttributes( { title } ) }
 					placeholder='Accordion Title'
-					style={ { color: attributes.titleColor } }
+					style={ titleStyle }
 				/>
 				<span className="simpleaccordion-expand" style={ { color: attributes.titleColor } }>+</span>
 			</div>
 			<div className="simpleaccordion-panel" style={ { color: attributes.panelBackgroundColor } }>
 				<InnerBlocks />
 			</div>
-		
 		</div>
 	);
 }
