@@ -88,7 +88,7 @@ export default function Edit( { attributes, setAttributes } ) {
 				/>
 				<span className="simpleaccordion-expand" style={ { color: attributes.titleColor } }>+</span>
 			</div>
-			<div className="simpleaccordion-panel" style={ { color: attributes.panelBackgroundColor } }>
+			<div className="simpleaccordion-panel" style={ { backgroundColor: attributes.panelBackgroundColor } }>
 				<InnerBlocks />
 			</div>
 		</div>
